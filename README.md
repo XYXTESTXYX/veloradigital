@@ -28,19 +28,19 @@ velora-digital/
 ├── README.md                   # Project documentation
 │
 └── pages/                      # 16 Standalone Product Landing Pages
-    ├── product-1-tier-1.html   # Tokyo: PDF Only ($12)
-    ├── product-1-tier-2.html   # Tokyo: PDF + Maps ($23)
-    ├── product-1-tier-3.html   # Tokyo: PDF + Maps + Notion ($48)
-    ├── product-1-tier-4.html   # Tokyo: Complete Bundle ($64)
-    ├── product-2-tier-1.html   # Amalfi: PDF Only ($23)
-    ├── product-2-tier-2.html   # Amalfi: PDF + Maps ($38)
-    ├── product-2-tier-3.html   # Amalfi: PDF + Maps + Notion ($76)
-    ├── product-2-tier-4.html   # Amalfi: Complete Bundle ($96)
-    ├── product-3-tier-1.html   # Iceland: PDF Only ($38)
-    ├── product-3-tier-2.html   # Iceland: PDF + Maps ($64)
-    ├── product-3-tier-3.html   # Iceland: PDF + Maps + Notion ($107)
-    ├── product-3-tier-4.html   # Iceland: Complete Bundle ($143)
-    ├── product-4-tier-1.html   # All-Access: PDF Only ($44)
-    ├── product-4-tier-2.html   # All-Access: PDF + Maps ($88)
-    ├── product-4-tier-3.html   # All-Access: PDF + Maps + Notion ($143)
-    └── product-4-tier-4.html   # All-Access: Complete Bundle ($229)
+    ├── product-1-tier-1.html   # Tokyo: PDF Only 
+    ├── product-1-tier-2.html   # Tokyo: PDF + Maps 
+    ├── product-1-tier-3.html   # Tokyo: PDF + Maps + Notion 
+    ├── product-1-tier-4.html   # Tokyo: Complete Bundle 
+    ├── product-2-tier-1.html   # Amalfi: PDF Only 
+    ├── product-2-tier-2.html   # Amalfi: PDF + Maps 
+    ├── product-2-tier-3.html   # Amalfi: PDF + Maps + Notion 
+    ├── product-2-tier-4.html   # Amalfi: Complete Bundle 
+    ├── product-3-tier-1.html   # Iceland: PDF Only 
+    ├── product-3-tier-2.html   # Iceland: PDF + Maps 
+    ├── product-3-tier-3.html   # Iceland: PDF + Maps + Notion 
+    ├── product-3-tier-4.html   # Iceland: Complete Bundle 
+    ├── product-4-tier-1.html   # All-Access: PDF Only 
+    ├── product-4-tier-2.html   # All-Access: PDF + Maps 
+    ├── product-4-tier-3.html   # All-Access: PDF + Maps + Notion 
+    └── product-4-tier-4.html   # All-Access: Complete Bundle 
