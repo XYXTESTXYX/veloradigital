@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velora Digital | Curated Travel Itineraries & Digital Tools</title>
+  <meta name="description" content="Curated day-by-day travel itineraries, interactive Google Maps pins, and Notion trip planning hubs designed for seamless offline journeys." />
+
+  <!-- SVG Travel Campervan Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231B2430'/%3E%3Cpath d='M6 10 C6 9 7 8 8 8 L20 8 C22 8 23.5 9 24.5 11 L26.5 15 C26.8 15.5 27 16 27 17 L27 21 C27 21.6 26.6 22 26 22 L24 22 C24 23.7 22.7 25 21 25 C19.3 25 18 23.7 18 22 L14 22 C14 23.7 12.7 25 11 25 C9.3 25 8 23.7 8 22 L6 22 C5.4 22 5 21.6 5 21 L5 11 C5 10.4 5.4 10 6 10 Z' fill='%234A6B5D'/%3E%3Cpath d='M8 11 L13 11 C13.6 11 14 11.4 14 12 L14 15 L8 15 Z' fill='%23FAF9F6'/%3E%3Cpath d='M16 11 L20 11 L23.5 15 L16 15 Z' fill='%23FAF9F6'/%3E%3Ccircle cx='11' cy='22' r='2' fill='%231B2430'/%3E%3Ccircle cx='21' cy='22' r='2' fill='%231B2430'/%3E%3Ccircle cx='26' cy='18' r='1' fill='%23FAF9F6'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            sand: {
+              50: '#FAF9F6',
+              100: '#F5F3EF',
+              200: '#EAE6DF',
+            },
+            slateNavy: {
+              800: '#1B2430',
+              900: '#111827',
+            },
+            sage: {
+              600: '#4A6B5D',
+              700: '#3D594C',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-sand-50 text-slateNavy-900 font-sans antialiased selection:bg-sage-600 selection:text-white">
+
+  <!-- TOP ANNOUNCEMENT BANNER -->
+  <div class="bg-slateNavy-900 text-sand-50 text-xs py-2.5 px-4 text-center tracking-wide font-medium">
+    ✨ Spring Travel Drop: All Notion Trip Hubs & Itineraries include free lifetime updates.
+  </div>
+
+  <!-- NAVIGATION WITH VAN LOGO -->
+  <nav class="sticky top-0 z-40 bg-sand-50/90 backdrop-blur-md border-b border-sand-200">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-lg tracking-tight flex items-center gap-2.5 hover:opacity-90 transition">
+        <!-- Brand Van Emblem -->
+        <svg class="w-7 h-7 flex-shrink-0 shadow-sm rounded-lg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#1B2430"/>
+          <path d="M6 10 C6 9 7 8 8 8 L20 8 C22 8 23.5 9 24.5 11 L26.5 15 C26.8 15.5 27 16 27 17 L27 21 C27 21.6 26.6 22 26 22 L24 22 C24 23.7 22.7 25 21 25 C19.3 25 18 23.7 18 22 L14 22 C14 23.7 12.7 25 11 25 C9.3 25 8 23.7 8 22 L6 22 C5.4 22 5 21.6 5 21 L5 11 C5 10.4 5.4 10 6 10 Z" fill="#4A6B5D"/>
+          <path d="M8 11 L13 11 C13.6 11 14 11.4 14 12 L14 15 L8 15 Z" fill="#FAF9F6"/>
+          <path d="M16 11 L20 11 L23.5 15 L16 15 Z" fill="#FAF9F6"/>
+          <circle cx="11" cy="22" r="2" fill="#1B2430"/>
+          <circle cx="21" cy="22" r="2" fill="#1B2430"/>
+          <circle cx="26" cy="18" r="1" fill="#FAF9F6"/>
+        </svg>
+        <span>VELORA DIGITAL</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        <a href="#showcase" class="hover:text-slateNavy-900 transition">How It Works</a>
+        <a href="#catalog" class="hover:text-slateNavy-900 transition">Catalog</a>
+        <a href="#compare" class="hover:text-slateNavy-900 transition">Comparison</a>
+        <a href="#articles" class="hover:text-slateNavy-900 transition">Field Notes</a>
+        <a href="#faq" class="hover:text-slateNavy-900 transition">FAQ</a>
+      </div>
+      <a href="#catalog" class="bg-sage-600 hover:bg-sage-700 text-white text-xs md:text-sm font-semibold px-4 py-2 rounded-full transition shadow-sm">
+        Explore 16 Packages
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="pt-16 pb-16 px-6 max-w-5xl mx-auto text-center">
+    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sand-200 text-sage-700 text-xs font-semibold tracking-wide uppercase mb-6">
+      Hand-Crafted Travel Guides
+    </span>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slateNavy-900 leading-[1.15] mb-6">
+      Skip the research rabbit hole.<br class="hidden sm:inline" />
+      Travel with intention.
+    </h1>
+    <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+      Curated day-by-day itineraries, interactive Google Maps pins, and Notion planning hubs — each available in tailored standalone formats.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="#catalog" class="w-full sm:w-auto px-7 py-3.5 bg-slateNavy-900 text-white rounded-full font-medium hover:bg-slate-800 transition shadow">
+        Browse Package Catalog
+      </a>
+      <a href="pages/product-4-tier-4.html" class="w-full sm:w-auto px-7 py-3.5 bg-white border border-sand-200 text-slateNavy-900 rounded-full font-medium hover:bg-sand-100 transition shadow-sm">
+        View All-Access World Pass
+      </a>
+    </div>
+  </section>
+
+  <!-- 1. SOCIAL PROOF & STATS STRIP -->
+  <section class="border-y border-sand-200 bg-sand-100/60 py-6 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-slateNavy-900">14,200+</div>
+        <p class="text-xs text-slate-500 mt-0.5 font-medium">Guides Downloaded</p>
+      </div>
+      <div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-slateNavy-900 flex items-center justify-center gap-1">
+          4.9 <span class="text-amber-500 text-lg">★★★★★</span>
+        </div>
+        <p class="text-xs text-slate-500 mt-0.5 font-medium">Average Traveler Rating</p>
+      </div>
+      <div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-slateNavy-900">600+</div>
+        <p class="text-xs text-slate-500 mt-0.5 font-medium">Curated Offline Map Pins</p>
+      </div>
+      <div>
+        <div class="text-2xl sm:text-3xl font-extrabold text-slateNavy-900">100%</div>
+        <p class="text-xs text-slate-500 mt-0.5 font-medium">Offline Smartphone Ready</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. "WHAT'S INSIDE" INTERACTIVE SYSTEM SHOWCASE -->
+  <section id="showcase" class="py-20 px-6 max-w-6xl mx-auto">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs font-bold uppercase tracking-widest text-sage-600">The Modern Travel System</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-slateNavy-900 mt-2 tracking-tight">
+        Engineered for zero friction on the ground
+      </h2>
+      <p class="text-slate-500 text-sm mt-3">
+        See how each format works harmoniously to keep you exploring instead of staring at your phone troubleshooting routes.
+      </p>
+    </div>
+
+    <!-- Interactive Tabs -->
+    <div class="flex justify-center gap-2 mb-8" id="preview-tabs">
+      <button onclick="switchPreview('maps')" id="tab-btn-maps" class="preview-tab active px-5 py-2.5 rounded-full text-xs font-bold bg-slateNavy-900 text-white transition">
+        🗺️ Google Maps Pin Layer
+      </button>
+      <button onclick="switchPreview('notion')" id="tab-btn-notion" class="preview-tab px-5 py-2.5 rounded-full text-xs font-bold bg-white text-slate-600 border border-sand-200 hover:bg-sand-100 transition">
+        📋 Notion Travel OS
+      </button>
+      <button onclick="switchPreview('pdf')" id="tab-btn-pdf" class="preview-tab px-5 py-2.5 rounded-full text-xs font-bold bg-white text-slate-600 border border-sand-200 hover:bg-sand-100 transition">
+        📄 Interactive Offline PDF
+      </button>
+    </div>
+
+    <!-- Preview Container -->
+    <div class="bg-white border border-sand-200 rounded-3xl p-6 sm:p-10 shadow-sm">
+      
+      <!-- Panel 1: Google Maps Pins (With Real Interactive Links) -->
+      <div id="panel-maps" class="preview-panel grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-5 space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-sage-600">One-Tap Geo Integration</span>
+          <h3 class="text-2xl font-bold text-slateNavy-900">Over 600+ vetted coordinates saved straight to your Google Maps.</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Open the link once, and every coffee roastery, hidden alleyway ramen bar, cliffside ferry dock, and scenic overlook gets plotted into your personal Google Maps app with custom color-coded pins.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-700 font-medium pt-2">
+            <li class="flex items-center gap-2">✓ Works completely offline without expensive mobile data</li>
+            <li class="flex items-center gap-2">✓ Split by categories: Sightseeing, Specialty Coffee, Diners, Viewpoints</li>
+            <li class="flex items-center gap-2">✓ Direct links to Japanese & Italian reservation portals</li>
+          </ul>
+        </div>
+        <div class="lg:col-span-7 bg-slateNavy-900 rounded-2xl p-6 text-white relative overflow-hidden shadow-inner flex flex-col justify-center min-h-[280px]">
+          <div class="text-xs font-mono text-sage-600 uppercase tracking-wider mb-2">Live Google Maps Preview (Click to test)</div>
+          <div class="space-y-3 font-mono text-xs">
+            
+            <!-- Real Link 1: Tokyo Omoide Yokocho -->
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Omoide+Yokocho+Tokyo" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="bg-white/10 hover:bg-white/20 p-3.5 rounded-xl flex items-center justify-between transition group border border-white/5 hover:border-white/20">
+              <span class="text-slate-200 group-hover:text-white flex items-center gap-2">
+                <span>📍</span> Shinjuku: Omoide Yokocho Alleyway (Pin #12)
+              </span>
+              <span class="text-sage-600 font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                Open Maps →
+              </span>
+            </a>
+
+            <!-- Real Link 2: Amalfi Marina Grande Pier -->
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Porto+di+Amalfi+Marina+Grande" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="bg-white/10 hover:bg-white/20 p-3.5 rounded-xl flex items-center justify-between transition group border border-white/5 hover:border-white/20">
+              <span class="text-slate-200 group-hover:text-white flex items-center gap-2">
+                <span>📍</span> Amalfi: Marina Grande Pier 3 (Direct Ferry)
+              </span>
+              <span class="text-sage-600 font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                Open Maps →
+              </span>
+            </a>
+
+            <!-- Real Link 3: Iceland Seljalandsfoss Hidden Canyon (Gljúfrabúi) -->
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Glj%C3%BAfrab%C3%BAi+Waterfall+Iceland" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="bg-white/10 hover:bg-white/20 p-3.5 rounded-xl flex items-center justify-between transition group border border-white/5 hover:border-white/20">
+              <span class="text-slate-200 group-hover:text-white flex items-center gap-2">
+                <span>📍</span> Route 1 Iceland: Seljalandsfoss Hidden Canyon
+              </span>
+              <span class="text-sage-600 font-bold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                Open Maps →
+              </span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: Notion Hub -->
+      <div id="panel-notion" class="preview-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-5 space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-sage-600">Trip Operating System</span>
+          <h3 class="text-2xl font-bold text-slateNavy-900">Your entire vacation organized into a modular Notion dashboard.</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Duplicate into your free Notion account in a single click. Keep track of flight codes, hotel check-ins, multi-currency budget converters, gear checklists, and customizable daily timelines.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-700 font-medium pt-2">
+            <li class="flex items-center gap-2">✓ Daily timeline views with drag-and-drop itinerary blocks</li>
+            <li class="flex items-center gap-2">✓ Automated currency conversion and expense balance sheet</li>
+            <li class="flex items-center gap-2">✓ Pre-filled packing checklist for international flights</li>
+          </ul>
+        </div>
+        <div class="lg:col-span-7 bg-sand-100 rounded-2xl p-6 border border-sand-200 text-slateNavy-900 min-h-[280px]">
+          <div class="flex items-center justify-between border-b border-sand-200 pb-3 mb-4">
+            <span class="font-bold text-sm">📋 Notion Travel OS — Master Workspace</span>
+            <span class="text-xs bg-sage-600 text-white px-2 py-0.5 rounded-full">Duplicate Template</span>
+          </div>
+          <div class="grid grid-cols-3 gap-3 text-xs">
+            <div class="bg-white p-3 rounded-xl border border-sand-200">
+              <span class="font-bold block mb-1">📅 Itinerary</span>
+              <span class="text-slate-400">Day 1 to 10 Chronological Timeline</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-sand-200">
+              <span class="font-bold block mb-1">💳 Budget</span>
+              <span class="text-slate-400">Multi-currency tracker (JPY/EUR/USD)</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-sand-200">
+              <span class="font-bold block mb-1">🎒 Packing</span>
+              <span class="text-slate-400">Plug adapters, layers & gear</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 3: PDF Guide -->
+      <div id="panel-pdf" class="preview-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-5 space-y-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-sage-600">Offline Typography & Flow</span>
+          <h3 class="text-2xl font-bold text-slateNavy-900">Gorgeous, reader-first PDF layouts that work offline on any device.</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Engineered exclusively for mobile dimensions. No zooming, panning, or squinting at tiny font sizes. Read smoothly on flights, bullet trains, and remote fjords without internet access.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-700 font-medium pt-2">
+            <li class="flex items-center gap-2">✓ Formatted for Apple Books, Kindle, and PDF phone readers</li>
+            <li class="flex items-center gap-2">✓ Interactive tap-to-call and tap-to-navigate links</li>
+            <li class="flex items-center gap-2">✓ Transit transfer line guides and station exit maps</li>
+          </ul>
+        </div>
+        <div class="lg:col-span-7 bg-slateNavy-900 rounded-2xl p-6 text-white min-h-[280px] flex flex-col justify-center text-center">
+          <span class="text-sage-600 font-bold text-xs uppercase tracking-widest mb-1">Mobile PDF Preview</span>
+          <h4 class="text-xl font-bold">50+ Pages of High-Density Actionable Travel Flow</h4>
+          <p class="text-xs text-slate-400 mt-2 max-w-sm mx-auto">Zero fluff. Only verified transit routes, reservation timelines, and local insider etiquette.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. CATALOG SECTION: 16 DEDICATED PACKAGES -->
+  <section id="catalog" class="py-16 px-6 max-w-6xl mx-auto">
+    <div class="mb-10 border-b border-sand-200 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slateNavy-900 tracking-tight">Destination & Travel Packages</h2>
+        <p class="text-slate-500 text-sm mt-1">Pick your package, then click any tier cell to open its dedicated specification page.</p>
+      </div>
+      <div class="text-xs text-slate-500 font-medium">16 Dedicated Single Packages Available</div>
+    </div>
+
+    <!-- Format tier legend -->
+    <div class="flex flex-wrap gap-3 mb-8 text-xs">
+      <span class="px-3 py-1.5 rounded-full bg-sand-100 border border-sand-200 font-semibold text-slate-700">📄 Tier 1: PDF Only</span>
+      <span class="px-3 py-1.5 rounded-full bg-sand-100 border border-sand-200 font-semibold text-slate-700">🗺️ Tier 2: PDF + Maps Pins</span>
+      <span class="px-3 py-1.5 rounded-full bg-sand-100 border border-sand-200 font-semibold text-slate-700">📋 Tier 3: PDF + Maps + Notion Hub</span>
+      <span class="px-3 py-1.5 rounded-full bg-sand-100 border border-sand-200 font-semibold text-slate-700">✨ Tier 4: Complete Bundle (+ Extras)</span>
+    </div>
+
+    <!-- Product List -->
+    <div class="space-y-6" id="product-grid">
+
+      <!-- Product 1: Tokyo 7-Day Guide -->
+      <div class="product-card bg-white rounded-2xl border border-sand-200 overflow-hidden shadow-sm hover:shadow-md transition">
+        <div class="p-6 pb-4 border-b border-sand-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="text-xs font-semibold uppercase text-sage-600 tracking-wider">City Guide</span>
+            <h3 class="font-bold text-lg text-slateNavy-900">Tokyo 7-Day Complete Itinerary</h3>
+            <p class="text-slate-500 text-sm mt-0.5">Day-by-day transit routes, hidden ramen alleys, tea houses & verified offline map pins.</p>
+          </div>
+          <span class="text-xs text-slate-400">4 Format Tiers</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 divide-x divide-sand-100">
+          <a href="pages/product-1-tier-1.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">PDF Only</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$12</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-1-tier-2.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">PDF + Maps</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$23</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-1-tier-3.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">+ Notion Hub</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$48</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-1-tier-4.html" class="p-4 text-center hover:bg-sage-600 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 group-hover:text-white/80 mb-1">Complete Bundle</span>
+            <span class="block text-xl font-bold text-slateNavy-900 group-hover:text-white">$64</span>
+            <span class="text-[11px] text-sage-700 group-hover:text-white font-medium underline mt-1 block">View Package →</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Product 2: Amalfi Coast & Southern Italy -->
+      <div class="product-card bg-white rounded-2xl border border-sand-200 overflow-hidden shadow-sm hover:shadow-md transition">
+        <div class="p-6 pb-4 border-b border-sand-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="text-xs font-semibold uppercase text-sage-600 tracking-wider">Regional Guide</span>
+            <h3 class="font-bold text-lg text-slateNavy-900">Amalfi Coast & Southern Italy</h3>
+            <p class="text-slate-500 text-sm mt-0.5">Navigating Amalfi without gridlock, ferry timetables, cliffside dining & boutique stays.</p>
+          </div>
+          <span class="text-xs text-slate-400">4 Format Tiers</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 divide-x divide-sand-100">
+          <a href="pages/product-2-tier-1.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">PDF Only</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$23</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-2-tier-2.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">PDF + Maps</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$38</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-2-tier-3.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">+ Notion Hub</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$76</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-2-tier-4.html" class="p-4 text-center hover:bg-sage-600 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 group-hover:text-white/80 mb-1">Complete Bundle</span>
+            <span class="block text-xl font-bold text-slateNavy-900 group-hover:text-white">$96</span>
+            <span class="text-[11px] text-sage-700 group-hover:text-white font-medium underline mt-1 block">View Package →</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Product 3: Iceland Ring Road Pass -->
+      <div class="product-card bg-white rounded-2xl border border-sand-200 overflow-hidden shadow-sm hover:shadow-md transition">
+        <div class="p-6 pb-4 border-b border-sand-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="text-xs font-semibold uppercase text-sage-600 tracking-wider">Country Pass</span>
+            <h3 class="font-bold text-lg text-slateNavy-900">Iceland Ring Road Pass</h3>
+            <p class="text-slate-500 text-sm mt-0.5">Full loop of Route 1 — glaciers, waterfalls, hot springs, and fuel station waypoints.</p>
+          </div>
+          <span class="text-xs text-slate-400">4 Format Tiers</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 divide-x divide-sand-100">
+          <a href="pages/product-3-tier-1.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">PDF Only</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$38</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-3-tier-2.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">PDF + Maps</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$64</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-3-tier-3.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">+ Notion Hub</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$107</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-3-tier-4.html" class="p-4 text-center hover:bg-sage-600 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 group-hover:text-white/80 mb-1">Complete Bundle</span>
+            <span class="block text-xl font-bold text-slateNavy-900 group-hover:text-white">$143</span>
+            <span class="text-[11px] text-sage-700 group-hover:text-white font-medium underline mt-1 block">View Package →</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Product 4: All-Access World Pass -->
+      <div class="product-card bg-white rounded-2xl border-2 border-sage-600 overflow-hidden shadow-sm hover:shadow-md transition relative">
+        <span class="absolute top-0 right-0 bg-sage-600 text-white text-[10px] font-bold uppercase tracking-wide px-3 py-1 rounded-bl-lg">Best Value Library</span>
+        <div class="p-6 pb-4 border-b border-sand-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <span class="text-xs font-semibold uppercase text-sage-600 tracking-wider">Full Library Pass</span>
+            <h3 class="font-bold text-lg text-slateNavy-900">All-Access World Pass</h3>
+            <p class="text-slate-500 text-sm mt-0.5">Tokyo, Amalfi Coast & Southern Italy, Iceland Ring Road — all current and future destinations in one place.</p>
+          </div>
+          <span class="text-xs text-slate-400">4 Format Tiers</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 divide-x divide-sand-100">
+          <a href="pages/product-4-tier-1.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">PDF Only</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$44</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-4-tier-2.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">PDF + Maps</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$88</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-4-tier-3.html" class="p-4 text-center hover:bg-sand-50 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-slate-400 mb-1 group-hover:text-sage-600">+ Notion Hub</span>
+            <span class="block text-xl font-bold text-slateNavy-900">$143</span>
+            <span class="text-[11px] text-sage-600 font-medium underline mt-1 block">View Package →</span>
+          </a>
+          <a href="pages/product-4-tier-4.html" class="p-4 text-center bg-sage-600 text-white hover:bg-sage-700 transition group block">
+            <span class="block text-[11px] font-semibold uppercase tracking-wide text-white/80 mb-1">Complete Bundle</span>
+            <span class="block text-xl font-bold text-white">$229</span>
+            <span class="text-[11px] text-white/90 font-medium underline mt-1 block">View Package →</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. COMPARISON TABLE: VELORA VS THE ALTERNATIVES -->
+  <section id="compare" class="py-16 px-6 max-w-5xl mx-auto">
+    <div class="text-center max-w-xl mx-auto mb-12">
+      <span class="text-xs font-bold uppercase tracking-widest text-sage-600">The Difference</span>
+      <h2 class="text-3xl font-bold text-slateNavy-900 mt-2">Why modern travelers choose Velora</h2>
+      <p class="text-slate-500 text-sm mt-2">Built for how people travel with their phones in hand.</p>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-sm bg-white rounded-2xl border border-sand-200 overflow-hidden shadow-sm">
+        <thead class="bg-sand-100 text-slateNavy-900 font-bold border-b border-sand-200 text-xs uppercase tracking-wider">
+          <tr>
+            <th class="p-4 sm:p-5">Feature</th>
+            <th class="p-4 sm:p-5 text-sage-700 bg-sage-600/10">Velora Digital Guides</th>
+            <th class="p-4 sm:p-5 text-slate-400">400-Page Guidebooks</th>
+            <th class="p-4 sm:p-5 text-slate-400">TikTok & Travel Blogs</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-sand-100 text-slate-600 text-xs sm:text-sm">
+          <tr>
+            <td class="p-4 sm:p-5 font-semibold text-slateNavy-900">Format</td>
+            <td class="p-4 sm:p-5 font-bold text-sage-700 bg-sage-600/5">Mobile PDF + Maps + Notion</td>
+            <td class="p-4 sm:p-5 text-slate-400">Heavy paper book</td>
+            <td class="p-4 sm:p-5 text-slate-400">50 open Safari tabs</td>
+          </tr>
+          <tr>
+            <td class="p-4 sm:p-5 font-semibold text-slateNavy-900">Map Integration</td>
+            <td class="p-4 sm:p-5 font-bold text-sage-700 bg-sage-600/5">1-Tap direct Google Maps pins</td>
+            <td class="p-4 sm:p-5 text-slate-400">Static paper index maps</td>
+            <td class="p-4 sm:p-5 text-slate-400">Manual typing of addresses</td>
+          </tr>
+          <tr>
+            <td class="p-4 sm:p-5 font-semibold text-slateNavy-900">Updates</td>
+            <td class="p-4 sm:p-5 font-bold text-sage-700 bg-sage-600/5">Free lifetime digital updates</td>
+            <td class="p-4 sm:p-5 text-slate-400">Outdated once printed</td>
+            <td class="p-4 sm:p-5 text-slate-400">Unverified sponsored posts</td>
+          </tr>
+          <tr>
+            <td class="p-4 sm:p-5 font-semibold text-slateNavy-900">Reading Time</td>
+            <td class="p-4 sm:p-5 font-bold text-sage-700 bg-sage-600/5">15 mins to master your trip</td>
+            <td class="p-4 sm:p-5 text-slate-400">12+ hours of dense reading</td>
+            <td class="p-4 sm:p-5 text-slate-400">Hours of endless scrolling</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 5. FEATURED ALL-ACCESS BUNDLE SECTION -->
+  <section id="bundle" class="py-16 px-6 max-w-5xl mx-auto">
+    <div class="bg-slateNavy-900 text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="max-w-lg z-10">
+        <span class="text-xs font-bold uppercase tracking-widest text-sage-600">Best Value</span>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mt-2 mb-4">The All-Access World Pass</h2>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+          Every destination guide — Tokyo, Amalfi Coast & Southern Italy, Iceland Ring Road — plus the full Notion Travel OS suite. Choose your format tier and get it all in one library.
+        </p>
+        <ul class="space-y-2 text-sm text-slate-300 mb-6">
+          <li class="flex items-center gap-2">✓ All Destination, Regional & Country Guides</li>
+          <li class="flex items-center gap-2">✓ 600+ Curated Google Maps Direct Pins</li>
+          <li class="flex items-center gap-2">✓ Notion OS Template + Spreadsheet Planners</li>
+        </ul>
+      </div>
+      <div class="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-center w-full md:w-auto min-w-[240px] z-10">
+        <div class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Starting at</div>
+        <div class="text-4xl font-extrabold mb-1">$44</div>
+        <div class="text-xs text-slate-400 mb-5">4 format tiers up to $229</div>
+        <a
+          href="pages/product-4-tier-4.html"
+          class="block w-full py-3 bg-white text-slateNavy-900 rounded-full font-bold text-sm hover:bg-sand-100 transition shadow">
+          Explore All-Access Tier
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FREE LEAD MAGNET: SAMPLE MICRO-GUIDE -->
+  <section class="py-16 px-6 max-w-5xl mx-auto">
+    <div class="bg-gradient-to-br from-sand-100 to-sand-200 border border-sand-200 rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
+      <div class="max-w-lg">
+        <span class="inline-block bg-white text-sage-700 border border-sand-200 text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Free Sample Guide</span>
+        <h3 class="text-2xl sm:text-3xl font-bold text-slateNavy-900 tracking-tight">
+          Not ready to purchase? Grab our Free 24-Hour Tokyo Micro-Guide.
+        </h3>
+        <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+          Experience our formatting firsthand. Includes our Shibuya coffee walk, 3 secret ramen counters, and offline subway route card. Zero spam, instant PDF delivery.
+        </p>
+      </div>
+      <form onsubmit="handleLeadCapture(event)" class="w-full md:w-auto min-w-[300px] flex flex-col gap-3">
+        <input 
+          type="email" 
+          id="lead-email" 
+          placeholder="Enter your travel email..." 
+          required 
+          class="px-4 py-3 rounded-full text-sm border border-sand-200 bg-white text-slateNavy-900 focus:outline-none focus:ring-2 focus:ring-sage-600"
+        />
+        <button 
+          type="submit" 
+          class="px-6 py-3 bg-slateNavy-900 hover:bg-slate-800 text-white rounded-full font-bold text-xs uppercase tracking-wider transition shadow">
+          Send Me The Free Guide →
+        </button>
+        <span id="lead-msg" class="text-[11px] text-center text-slate-500">Instant PDF download link sent to your inbox.</span>
+      </form>
+    </div>
+  </section>
+
+  <!-- 7. FIELD NOTES & SEO EDITORIAL ARTICLES -->
+  <section id="articles" class="py-16 px-6 max-w-6xl mx-auto border-t border-sand-200">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-sage-600">Field Notes</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slateNavy-900 tracking-tight mt-1">
+          Insider Guides & Logistics
+        </h2>
+        <p class="text-slate-500 text-sm mt-1">Deep dives into transit, packing, and routing by our on-the-ground travel scouts.</p>
+      </div>
+      <a href="#catalog" class="text-xs font-bold text-sage-700 hover:underline">Browse All Packages →</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Article 1 -->
+      <article class="bg-white rounded-2xl border border-sand-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
+        <div class="h-44 bg-slateNavy-900 p-6 flex flex-col justify-between text-white relative">
+          <div class="text-xs uppercase tracking-widest text-sage-600 font-bold">Tokyo Logistics</div>
+          <h4 class="font-bold text-base leading-snug">Tokyo Metro vs. Suica Card: How to Never Buy a Paper Ticket</h4>
+          <span class="text-[11px] text-slate-400">4 min read • Updated Weekly</span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Everything you need to know about setting up digital IC cards on Apple Wallet before your flight lands at Haneda or Narita.
+          </p>
+          <a href="pages/product-1-tier-1.html" class="text-xs font-bold text-sage-600 hover:text-sage-700 mt-4 inline-block">
+            Read in Tokyo 7-Day Guide →
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="bg-white rounded-2xl border border-sand-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
+        <div class="h-44 bg-slateNavy-800 p-6 flex flex-col justify-between text-white relative">
+          <div class="text-xs uppercase tracking-widest text-sage-600 font-bold">Amalfi Advice</div>
+          <h4 class="font-bold text-base leading-snug">Why You Should Never Rent a Car on the Amalfi Coast</h4>
+          <span class="text-[11px] text-slate-400">5 min read • Transit Guide</span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Avoid 3-hour cliffside gridlocks and €60/day parking fees. How ferry timetables between Positano, Capri, and Salerno save your trip.
+          </p>
+          <a href="pages/product-2-tier-2.html" class="text-xs font-bold text-sage-600 hover:text-sage-700 mt-4 inline-block">
+            Read in Amalfi Ferry Guide →
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="bg-white rounded-2xl border border-sand-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
+        <div class="h-44 bg-slateNavy-900 p-6 flex flex-col justify-between text-white relative">
+          <div class="text-xs uppercase tracking-widest text-sage-600 font-bold">Iceland Route 1</div>
+          <h4 class="font-bold text-base leading-snug">The 100km Fuel Trap: Ring Road Gas Stations You Can’t Miss</h4>
+          <span class="text-[11px] text-slate-400">6 min read • Safety Checklist</span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Eastern Iceland has fuel stretches where a missed pump leaves you stranded. Here are the exact GPS coordinates to pin before you drive.
+          </p>
+          <a href="pages/product-3-tier-2.html" class="text-xs font-bold text-sage-600 hover:text-sage-700 mt-4 inline-block">
+            Read in Iceland Ring Road Kit →
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 8. WHY VELORA PILLARS -->
+  <section id="why-velora" class="py-16 px-6 max-w-5xl mx-auto border-t border-sand-200">
+    <div class="text-center max-w-xl mx-auto mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold">Built for how people actually travel</h2>
+      <p class="text-slate-500 text-sm mt-2">No 300-page bloated guides. Only actionable intelligence.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-6 bg-white rounded-2xl border border-sand-200">
+        <div class="w-10 h-10 rounded-full bg-sand-100 flex items-center justify-center font-bold text-sage-700 mb-4">01</div>
+        <h4 class="font-bold text-base mb-1">One-Tap Map Pins</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">Every recommendation opens straight in Google Maps or Apple Maps. Zero manual copy-pasting addresses.</p>
+      </div>
+      <div class="p-6 bg-white rounded-2xl border border-sand-200">
+        <div class="w-10 h-10 rounded-full bg-sand-100 flex items-center justify-center font-bold text-sage-700 mb-4">02</div>
+        <h4 class="font-bold text-base mb-1">Mobile & Offline Ready</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">Engineered specifically for smartphone screens. Download once, access seamlessly on bullet trains or flights.</p>
+      </div>
+      <div class="p-6 bg-white rounded-2xl border border-sand-200">
+        <div class="w-10 h-10 rounded-full bg-sand-100 flex items-center justify-center font-bold text-sage-700 mb-4">03</div>
+        <h4 class="font-bold text-base mb-1">Lifetime Updates</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">Spots close and transit schedules shift. When we revise a guide, you receive fresh download links automatically.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. VERIFIED TRAVELER TESTIMONIALS -->
+  <section class="py-16 px-6 max-w-6xl mx-auto border-t border-sand-200">
+    <div class="text-center max-w-xl mx-auto mb-12">
+      <span class="text-xs font-bold uppercase tracking-widest text-sage-600">Traveler Reviews</span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slateNavy-900 mt-1">Real stories from the road</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="text-amber-500 text-sm mb-3">★★★★★</div>
+          <p class="text-xs text-slate-600 leading-relaxed italic">
+            "The Tokyo Google Maps layer alone saved us easily 10 hours. While everyone else stood in lines for Shibuya Sky, we walked into the quiet viewpoint rooftop Velora recommended."
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-sand-100 flex items-center justify-between">
+          <span class="text-xs font-bold text-slateNavy-900">Marcus & Elena K.</span>
+          <span class="text-[11px] text-sage-700 font-medium">Tokyo Complete Bundle</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="text-amber-500 text-sm mb-3">★★★★★</div>
+          <p class="text-xs text-slate-600 leading-relaxed italic">
+            "The Amalfi ferry timetable cheat sheet was an absolute lifesaver. We completely avoided the infamous coastal traffic jams and stayed on schedule every single day."
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-sand-100 flex items-center justify-between">
+          <span class="text-xs font-bold text-slateNavy-900">Sarah P.</span>
+          <span class="text-[11px] text-sage-700 font-medium">Amalfi PDF + Maps</span>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="text-amber-500 text-sm mb-3">★★★★★</div>
+          <p class="text-xs text-slate-600 leading-relaxed italic">
+            "I'm a Notion power user, and their Iceland Travel OS is the cleanest template I’ve ever seen. We tracked expenses, campsites, and daily hikes across 1,300 km flawlessly."
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-sand-100 flex items-center justify-between">
+          <span class="text-xs font-bold text-slateNavy-900">David T.</span>
+          <span class="text-[11px] text-sage-700 font-medium">Iceland Notion Hub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. EXPANDED FAQ SECTION (10 HIGH-VALUE QUESTIONS) -->
+  <section id="faq" class="py-20 px-6 max-w-4xl mx-auto border-t border-sand-200">
+    <div class="text-center max-w-xl mx-auto mb-12">
+      <span class="text-xs font-bold uppercase tracking-widest text-sage-600">Everything You Need to Know</span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slateNavy-900 mt-2">Frequently Asked Questions</h2>
+      <p class="text-slate-500 text-sm mt-2">Clear answers on file delivery, device compatibility, maps integration, and policies.</p>
+    </div>
+
+    <div class="space-y-4">
+      
+      <!-- FAQ 1 -->
+      <details class="bg-white p-5 rounded-2xl border border-sand-200 group transition">
+        <summary class="font-bold text-sm text-slateNavy-900 cursor-pointer list-none flex justify-between items-center">
+          How do I receive the files after purchase?
+          <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+          Access is immediate. The second your checkout completes, you are redirected to an instant-download confirmation screen. Within two minutes, you will also receive an automated confirmation email containing permanent direct download links to your PDF files, 1-tap Google Maps layer links, and 1-click Notion template duplication access.
+        </p>
+      </details>
+
+      <!-- FAQ 2 -->
+      <details class="bg-white p-5 rounded-2xl border border-sand-200 group transition">
+        <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center">
+          How do the Google Maps pins work on my phone?
+          <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+          No extra apps or paid subscriptions are required. After purchasing Tier 2, 3, or 4, you tap a private Google Maps access link. The entire custom layer (with color-coded categories for cafes, ramen counters, viewpoints, ferry docks, and emergency stops) immediately saves into your native Google Maps app under <em>Saved → Maps</em> on iOS, Android, or desktop.
+        </p>
+      </details>
+
+      <!-- FAQ 3 -->
+      <details class="bg-white p-5 rounded-2xl border border-sand-200 group transition">
+        <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center">
+          Can I use everything completely offline without expensive international data?
+          <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+          Yes, 100%. Our PDFs are downloaded directly to your phone's storage (Apple Books, Files, Adobe Reader, or Kindle) and do not need internet to open or scroll. For Google Maps, our guides include a 30-second walkthrough showing you how to download the destination’s offline map area so your GPS location tracks without consuming a single megabyte of roaming data.
+        </p>
+      </details>
+
+      <!-- FAQ 4 -->
+      <details class="bg-white p-5 rounded-2xl border border-sand-200 group transition">
+        <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center">
+          Do I need a paid Notion account to use the Notion Trip Hub?
+          <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+          Not at all. The Notion Trip Hub is fully optimized for the 100% free personal tier of Notion. When you open the template link provided in your delivery email, simply click the "Duplicate" button in the top-right corner to copy the workspace directly into your own private account.
+        </p>
+      </details>
+
+      <!-- FAQ 5 -->
+      <details class="bg-white p-5 rounded-2xl border border-sand-200 group transition">
+        <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center">
+          How do the free lifetime updates work?
+          <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+          Restaurants relocate, train timetables shift, and seasonal ferry routes change. Whenever our scouts update a guide, you will receive an automatic email notification with fresh download links. Furthermore, the Google Maps pin layers synchronize live in the cloud—any newly verified spot added by our team appears in your map automatically.
+        </p>
+      </details>
+
+      <!-- FAQ 6 -->
+      <details class="bg-white p-5 rounded-2xl border border-sand-200 group transition">
+        <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center">
+          Are the itineraries customizable, or do I have to follow them rigidly?
+          <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+          They are completely modular. Each day is structured into geographic clusters (Morning, Afternoon, Sunset, Evening) so you never spend hours backtracking across town. If bad weather hits or you want a slow morning, you can swap entire daily clusters effortlessly. With the Notion Hub edition, you can drag and drop itinerary blocks into any custom order you wish.
+        </p>
+      </details>
+
+      <!-- FAQ 7 -->
+      <details class="bg-white p-5 rounded-2xl border border-sand-200 group transition">
+        <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center">
+          Can I share the guide with my partner, family, or travel group?
+          <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+          Yes! You are welcome to share your downloaded files and invite your partner, spouse, or travel companions on the same trip to your duplicated Notion workspace. We only ask that you do not publish, resell, or distribute the files publicly online.
+        </p>
+      </details>
+
+      <!-- FAQ 8 -->
+      <details class="bg-white p-5 rounded-2xl border border-sand-200 group transition">
+        <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center">
+          What is included in the All-Access World Pass?
+          <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+          The All-Access World Pass provides complete entry to our entire digital ecosystem. You receive every current itinerary (Tokyo 7-Day, Amalfi Coast & Southern Italy, Iceland Ring Road Pass), 600+ Google Maps pins, the complete Notion Travel OS suite, and free lifetime access to every single new destination guide released by Velora Digital in the future.
+        </p>
+      </details>
+
+      <!-- FAQ 9 -->
+      <details class="bg-white p-5 rounded-2xl border border-sand-200 group transition">
+        <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center">
+          What payment methods are supported, and is checkout secure?
+          <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+          All transactions are processed through encrypted, PCI-compliant checkout powered by Creem.io. We accept Apple Pay, Google Pay, Visa, MasterCard, American Express, and major international payment methods. Your card numbers are never stored on our servers.
+        </p>
+      </details>
+
+      <!-- FAQ 10 -->
+      <details class="bg-white p-5 rounded-2xl border border-sand-200 group transition">
+        <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center">
+          What is your refund policy?
+          <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <p class="text-slate-600 text-sm mt-3 leading-relaxed">
+          Due to the instant-delivery nature of digital files and Notion workspaces, sales are final once links are delivered. However, we stand behind our quality: if you experience a technical file corruption, accidental duplicate purchase, or delivery failure, simply email <code class="text-xs bg-sand-100 px-1 py-0.5 rounded font-mono">veloradigitalofficial@hotmail.com</code> within 14 days and our team will resolve it or provide a full refund.
+        </p>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- FOOTER WITH VAN LOGO -->
+  <footer class="border-t border-sand-200 bg-white py-12 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6 text-xs text-slate-500">
+      <div class="flex items-center gap-2.5 font-bold text-slateNavy-900 text-sm">
+        <svg class="w-6 h-6 flex-shrink-0 shadow-sm rounded-lg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#1B2430"/>
+          <path d="M6 10 C6 9 7 8 8 8 L20 8 C22 8 23.5 9 24.5 11 L26.5 15 C26.8 15.5 27 16 27 17 L27 21 C27 21.6 26.6 22 26 22 L24 22 C24 23.7 22.7 25 21 25 C19.3 25 18 23.7 18 22 L14 22 C14 23.7 12.7 25 11 25 C9.3 25 8 23.7 8 22 L6 22 C5.4 22 5 21.6 5 21 L5 11 C5 10.4 5.4 10 6 10 Z" fill="#4A6B5D"/>
+          <path d="M8 11 L13 11 C13.6 11 14 11.4 14 12 L14 15 L8 15 Z" fill="#FAF9F6"/>
+          <path d="M16 11 L20 11 L23.5 15 L16 15 Z" fill="#FAF9F6"/>
+          <circle cx="11" cy="22" r="2" fill="#1B2430"/>
+          <circle cx="21" cy="22" r="2" fill="#1B2430"/>
+          <circle cx="26" cy="18" r="1" fill="#FAF9F6"/>
+        </svg>
+        <span>VELORA DIGITAL</span>
+      </div>
+      <div>
+        © <span id="year"></span> Velora Digital. All rights reserved.
+      </div>
+      <div class="flex gap-4">
+        <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+        <a href="terms.html" class="hover:underline">Terms of Service</a>
+        <a href="mailto:veloradigitalofficial@hotmail.com" class="hover:underline">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DYNAMIC JAVASCRIPT -->
+  <script>
+    // Auto-update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Interactive Showcase Tab Switcher
+    function switchPreview(type) {
+      document.querySelectorAll('.preview-panel').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.preview-tab').forEach(el => {
+        el.classList.remove('bg-slateNavy-900', 'text-white');
+        el.classList.add('bg-white', 'text-slate-600');
+      });
+
+      const activePanel = document.getElementById(`panel-${type}`);
+      const activeTab = document.getElementById(`tab-btn-${type}`);
+      if (activePanel) activePanel.classList.remove('hidden');
+      if (activeTab) {
+        activeTab.classList.remove('bg-white', 'text-slate-600');
+        activeTab.classList.add('bg-slateNavy-900', 'text-white');
+      }
+    }
+
+    // Lead Magnet Email Form Handler
+    function handleLeadCapture(e) {
+      e.preventDefault();
+      const email = document.getElementById('lead-email').value;
+      const msg = document.getElementById('lead-msg');
+      
+      msg.textContent = `✓ Success! Free Tokyo sample guide sent to ${email}.`;
+      msg.classList.add('text-sage-700', 'font-bold');
+      
+      setTimeout(() => {
+        window.location.href = 'pages/product-1-tier-1.html';
+      }, 1800);
+    }
+  </script>
+</body>
+</html>
